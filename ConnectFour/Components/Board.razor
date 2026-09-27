@@ -2,7 +2,7 @@
 @using System.Drawing
 @inject GameState State
 
-<!-- Tag <style> reativa -->
+
 <style>
     :root {
         --board-bg: @ColorTranslator.ToHtml(BoardColor);
@@ -11,17 +11,17 @@
     }
 </style>
 
-<!-- Seletor de Cores das Peças -->
+
 <div class="color-picker-container" style="margin-bottom: 15px; display: flex; gap: 20px; align-items: center;">
     <label style="display: flex; align-items: center; gap: 8px;">
-        <strong>Jogador 1:</strong>
+        <strong>Player 1:</strong>
         <input type="color" 
                value="@ColorToHex(Player1Color)" 
                @onchange='(e) => UpdatePlayer1Color(e.Value?.ToString())' />
     </label>
 
     <label style="display: flex; align-items: center; gap: 8px;">
-        <strong>Jogador 2:</strong>
+        <strong>Player 2:</strong>
         <input type="color" 
                value="@ColorToHex(Player2Color)" 
                @onchange='(e) => UpdatePlayer2Color(e.Value?.ToString())' />
@@ -85,7 +85,7 @@
         if (!string.IsNullOrEmpty(hex))
         {
             Player1Color = ColorTranslator.FromHtml(hex);
-            StateHasChanged(); // Força a re-renderização das cores na tela
+            StateHasChanged(); 
         }
     }
 
@@ -94,7 +94,7 @@
         if (!string.IsNullOrEmpty(hex))
         {
             Player2Color = ColorTranslator.FromHtml(hex);
-            StateHasChanged(); // Força a re-renderização das cores na tela
+            StateHasChanged(); 
         }
     }
 
